@@ -1,0 +1,4 @@
+.f-outline input:focus-within ~ label,
+    .f-outline input:not(:placeholder-shown) ~ label {
+        transform: translateY(-1.5rem) translatex(-1rem) scaleX(0.80) scaleY(0.80);
+    }

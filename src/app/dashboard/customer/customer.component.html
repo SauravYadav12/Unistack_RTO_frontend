@@ -1,0 +1,124 @@
+
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+<div class="flex items-center justify-center">
+    
+        <div class="grid py-2 bg-white rounded-lg shadow-xl w-11/12 md:w-9/12 lg:w-1/2">
+        <div class="flex justify-center py-4">
+            <div class="flex justify-center">
+                <img src="../../../assets/images/Unistack.png" alt="" width="10%">
+            <!-- <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg> -->
+            </div>
+        </div>
+    
+        <div class="flex justify-center">
+            <ng-container *ngIf="recordNum && isAddMode">
+                <div class="flex">
+                    <h1 class="text-gray-600 font-bold md:text-2xl text-xl">Add Customer # {{recordNum}}</h1>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="!isAddMode && recordData">
+                <div class="flex">
+                    <h1 class="text-gray-600 font-bold md:text-2xl text-xl">Customer # {{recordData.custId}}</h1>
+                </div>
+            </ng-container>
+        </div>
+        <div class="flex">
+            <h1 class="text-pink-400 font-bold md:text-xl text-lg ml-8">1. Details</h1>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+            <div class="grid grid-cols-1">
+            <label class="required uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Vehicle No.</label>
+            <input class="uppercase py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="vehicleNo" type="text" placeholder="Enter Vehicle No." required/>
+            </div>
+            <div class="grid grid-cols-1">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">RTO Name</label>
+            <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="rtoName" type="text" placeholder="Enter RTO Name" />
+            </div>
+        </div>
+    
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+            <div class="grid grid-cols-1">
+            <label class="required uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Buyer Mobile No.</label>
+            <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="buyerCellNo" type="number" placeholder="Enter Buyer Mobile No." required/>
+            </div>
+            <div class="grid grid-cols-1">
+            <label class="required uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Seller Mobile No.</label>
+            <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="sellerCellNo" type="number" placeholder="Enter Seller Mobile No." required/>
+            </div>
+        </div>
+    
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8 mt-5 mx-7">
+            <div class="grid grid-cols-1">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Sender Name</label>
+            <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="senderName" type="text" placeholder="Enter Sender Name" />
+            </div>
+            <div class="grid grid-cols-1">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Sender Mobile No.</label>
+            <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="senderCellNo" type="number" placeholder="Enter Sender Mobile No." />
+            </div>
+            <div class="grid grid-cols-1">
+                <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Branch District</label>
+                <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="branchDistrict" type="text" placeholder="Enter Branch District" />
+            </div>
+        </div>
+        <div class="flex">
+            <h1 class="text-pink-400 font-bold md:text-xl text-lg ml-8 mt-10">2. Charges</h1>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+            <div class="grid grid-cols-1">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Total Tax</label>
+            <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="totalTax" type="number" placeholder="Enter Total Tax" />
+            </div>
+            <div class="grid grid-cols-1">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Total Fee</label>
+            <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="totalFee" type="number" placeholder="Enter Total Fee" />
+            </div>
+        </div>
+
+        <div class="grid grid-cols-3 md:grid-cols-3 gap-5 md:gap-8 mt-5 mx-7">
+            <div class="grid grid-cols-1">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">HPA</label>
+            <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="HPA" type="number" placeholder="Enter HPA" />
+            </div>
+            <div class="grid grid-cols-1">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">HPT</label>
+            <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="HPT" type="number" placeholder="Enter HPT" />
+            </div>
+            <div class="grid grid-cols-1">
+                <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">DRC</label>
+                <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="DRC" type="number" placeholder="Enter DRC" />
+            </div>
+        </div>
+        <div class="grid grid-cols-3 md:grid-cols-3 gap-5 md:gap-8 mt-5 mx-7">
+            <div class="grid grid-cols-1">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">FC</label>
+            <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="FC" type="number" placeholder="Enter FC" />
+            </div>
+            <div class="grid grid-cols-1">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Permit</label>
+            <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="permit" type="number" placeholder="Enter Permit" />
+            </div>
+            <div class="grid grid-cols-1">
+                <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">FAR36 No.</label>
+                <input class="py-2 px-3 rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-uniblue-100 focus:border-transparent" formControlName="FAR36No" type="number" placeholder="Enter FAR36 No." />
+            </div>
+        </div>
+        <ng-container *ngIf='isAddMode && recordNum'>
+            <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
+                <button class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' routerLink="/dashboard/home">Cancel</button>
+                <button class='w-auto bg-unipink-100 hover:bg-pink-400 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="submit">Create</button>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf='!isAddMode && recordData'>
+            <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
+                <button class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' routerLink="/dashboard/customer/view/{{recordData._id}}">Cancel</button>
+                <button class='w-auto bg-unipink-100 hover:bg-pink-400 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="submit">Save</button>
+            </div>
+        </ng-container>
+        
+        </div>
+   
+  </div>
+</form>
